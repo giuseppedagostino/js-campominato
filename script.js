@@ -37,6 +37,7 @@ buttonStartGame.addEventListener("click",
         console.log("AOOOOOOOOOO HAI GIA' INSERITO QUESTO NUMERO");
       }
       console.log(arrayUser);
+      console.log(" ");
 
       // Gli sto dicendo di richiedere il numero finchè x resta uguale a false
     } while (checkExist == false);
@@ -44,6 +45,7 @@ buttonStartGame.addEventListener("click",
     if (checkExist == true) {
       // Forse era più bello boom?
       document.getElementById('message').innerHTML = "Game over.";
+      document.getElementById('score').innerHTML = "punteggio " + arrayUser.length;
     }
   }
 )
