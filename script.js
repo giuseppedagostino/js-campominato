@@ -21,9 +21,18 @@ do {
 console.log(arrayBombs);
 
 // 2 - PARTE DELL'UTENTE
+// Ad ogni click del pulsante inserisco un altro numero (mica potevo refreshare la pagina ogni volta)
+var pulsanteRischia = document.getElementById('rischia');
+pulsanteRischia.addEventListener("click",
+  function () {
+    var numeroUtente = prompt("Inserisci un numero compreso tra 1 e 100");
+    console.log("Numero inserito " + numeroUtente);
+    console.log(" ");
+  }
+)
 // Richiamo la funzione checkForBomb per verificare la presenza del numero inserito nell'array
 
-// FUNZIONI ----------------------------------------
+// 3 - FUNZIONI
 // Avrei potuto usare Math.ceil e togliere il valore min (Poichè qua sarà sempre 1) ma per esercizio va bene così
 function generateRandomBombs(min, max) {
     return Math.floor(Math.random()*max) + min;
