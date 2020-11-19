@@ -26,11 +26,13 @@ var pulsanteRischia = document.getElementById('rischia');
 pulsanteRischia.addEventListener("click",
   function () {
     var numeroUtente = prompt("Inserisci un numero compreso tra 1 e 100");
+    // Richiamo la funzione checkForBomb per verificare la presenza del numero inserito nell'array
+    var x = checkForBomb(numeroUtente, arrayBombs);
     console.log("Numero inserito " + numeroUtente);
+    console.log("Il numero era tra le bombe? " + x);
     console.log(" ");
   }
 )
-// Richiamo la funzione checkForBomb per verificare la presenza del numero inserito nell'array
 
 // 3 - FUNZIONI
 // Avrei potuto usare Math.ceil e togliere il valore min (Poichè qua sarà sempre 1) ma per esercizio va bene così
@@ -41,7 +43,7 @@ function generateRandomBombs(min, max) {
 function checkForBomb(number, array) {
   var result = false;
   for (var i = 0; i < array.length; i++) {
-    if (bomb == array[i]) {
+    if (number == array[i]) {
       result = true;
     }
   }
