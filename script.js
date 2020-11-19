@@ -25,13 +25,18 @@ console.log(arrayBombs);
 var buttonStartGame = document.getElementById('start_game');
 buttonStartGame.addEventListener("click",
   function () {
-    var userNumber = prompt("Inserisci un numero compreso tra 1 e 100");
-    // Richiamo la funzione checkForBomb per verificare la presenza del numero inserito nell'array
-    var x = checkForBomb(userNumber, arrayBombs);
-    console.log("Numero inserito " + userNumber);
-    console.log("Il numero era tra le bombe? " + x);
-    console.log(" ");
-    if (x == true) {
+    do {
+      var userNumber = prompt("Inserisci un numero compreso tra 1 e 100");
+      // Richiamo la funzione checkForBomb per verificare la presenza del numero inserito nell'array
+      var checkExist = checkForBomb(userNumber, arrayBombs);
+      console.log("Numero inserito " + userNumber);
+      console.log("Il numero era tra le bombe? " + checkExist);
+      console.log(" ");
+      // Gli sto dicendo di richiedere il numero finchè x resta uguale a false
+    } while (checkExist == false);
+
+    if (checkExist == true) {
+      // Forse era più bello boom?
       document.getElementById('message').innerHTML = "Game over.";
     }
   }
