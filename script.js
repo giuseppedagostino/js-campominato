@@ -12,8 +12,8 @@ do {
   // La bomba viene generata random ad ogni ciclo
   var bomb = generateRandomBombs (1, 100);
   // L'altra funzione cerca nell'array se c'è già quel numero prima di pushare
-  var checkForDuplicato = checkForBomb(bomb, arrayBombs);
-  if (checkForDuplicato == false) {
+  var checkForDuplicate = checkForBomb(bomb, arrayBombs);
+  if (checkForDuplicate == false) {
     arrayBombs.push(bomb);
   }
 } while (arrayBombs.length < 16);
@@ -22,15 +22,18 @@ console.log(arrayBombs);
 
 // 2 - PARTE DELL'UTENTE
 // Ad ogni click del pulsante inserisco un altro numero (mica potevo refreshare la pagina ogni volta)
-var pulsanteRischia = document.getElementById('rischia');
-pulsanteRischia.addEventListener("click",
+var buttonStartGame = document.getElementById('start_game');
+buttonStartGame.addEventListener("click",
   function () {
-    var numeroUtente = prompt("Inserisci un numero compreso tra 1 e 100");
+    var userNumber = prompt("Inserisci un numero compreso tra 1 e 100");
     // Richiamo la funzione checkForBomb per verificare la presenza del numero inserito nell'array
-    var x = checkForBomb(numeroUtente, arrayBombs);
-    console.log("Numero inserito " + numeroUtente);
+    var x = checkForBomb(userNumber, arrayBombs);
+    console.log("Numero inserito " + userNumber);
     console.log("Il numero era tra le bombe? " + x);
     console.log(" ");
+    if (x == true) {
+      document.getElementById('message').innerHTML = "Game over.";
+    }
   }
 )
 
