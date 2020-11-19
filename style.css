@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 50px;
+  font-size: 24px;
+  font-family: 'Rubik', sans-serif;
+  color: white;
+  background-color: black;
+}
+h1 {
+  font-style: 48px;
+}
