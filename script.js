@@ -1,31 +1,41 @@
-// TRACCIA
-// Il computer deve generare 16 numeri casuali tra 1 e 100.
-// I numeri non possono essere duplicati.
-// In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.
-// L’utente non può inserire più volte lo stesso numero.
-// Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
-// La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
-// Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
+// STEPS
+// 1 FATTO Creo un array di bombe vuoto
+// 2 FATTO Creo una funzione che genera 16 numeri casuali e li pusha nell'array
+// 3 FATTO Creo una funzione che vada a verificare se il numero inserito dall'utente è già presente nell'array
+// 4 Faccio inserire all'utente i numeri e gli faccio verificare se questi sono tra le bombe
 
-// 1 Creo un array di bombe vuoto
-// 2 Creo una funzione che genera 16 numeri casuali e li pusha nell'array
-// 3 Creo una funzione che vada a verificare se il numero inserito dall'utente è già presente nell'array
-// ATTENZIONE: PER VELOCIZZARMI CON LA CREAZIONE DELL'ESERCIZIO, SOLO MOMENTANEAMENTE USO NUMERI PIU' PICCOLI
-
-// Mi sa che devo togliere il var così l'array diventa universale e viene riconosciuto anche dalle funzioni se richiamato (così posso pusharci richiamandolo)
+// 1 - PARTE DEL COMPUTER
+// Creo l'array vuoto
 var arrayBombs = [];
-generateRandomBombs(1,12)
+// Richiamo la funzione per pusharci dentro 16 numeri random con valore massimo 100
+do {
+  // La bomba viene generata random ad ogni ciclo
+  var bomb = generateRandomBombs (1, 100);
+  // L'altra funzione cerca nell'array se c'è già quel numero prima di pushare
+  var checkForDuplicato = checkForBomb(bomb, arrayBombs);
+  if (checkForDuplicato == false) {
+    arrayBombs.push(bomb);
+  }
+} while (arrayBombs.length < 16);
+// Stampo il mio array per verificare
 console.log(arrayBombs);
 
-// FUNZIONI
+// 2 - PARTE DELL'UTENTE
+// Richiamo la funzione checkForBomb per verificare la presenza del numero inserito nell'array
+
+// FUNZIONI ----------------------------------------
+// Avrei potuto usare Math.ceil e togliere il valore min (Poichè qua sarà sempre 1) ma per esercizio va bene così
 function generateRandomBombs(min, max) {
-  // La bomba è una variabile locale poichè dev'essere riconosciuta solo dall'array
-  // Devo usare un while così genero numeri finchè l'array non arriva a lunghezza 16
-  // La sua variabile inizializzata è arrayBombs
-  do {
-    var bomb = Math.ceil(Math.random()*max);
-    arrayBombs.push(bomb);
-  } while (arrayBombs.length < 16);
+    return Math.floor(Math.random()*max) + min;
 }
 
-function checkForBomb(number, array) {}
+function checkForBomb(number, array) {
+  var result = false;
+  for (var i = 0; i < array.length; i++) {
+    if (bomb == array[i]) {
+      result = true;
+    }
+  }
+  // Se non la trova result sarà uguale a false (come inizializzato), non ho scritto l'else per abbreviare, va in automatico
+  return result;
+}
