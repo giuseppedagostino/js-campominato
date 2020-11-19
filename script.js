@@ -1,9 +1,3 @@
-// STEPS
-// 1 FATTO Creo un array di bombe vuoto
-// 2 FATTO Creo una funzione che genera 16 numeri casuali e li pusha nell'array
-// 3 FATTO Creo una funzione che vada a verificare se il numero inserito dall'utente è già presente nell'array
-// 4 Faccio inserire all'utente i numeri e gli faccio verificare se questi sono tra le bombe
-
 // 1 - PARTE DEL COMPUTER
 // Creo l'array vuoto
 var arrayBombs = [];
@@ -21,17 +15,29 @@ do {
 console.log(arrayBombs);
 
 // 2 - PARTE DELL'UTENTE
+// Creo un array vuoto per i numeri inseriti dall'utente
+var arrayUser = [];
 // Ad ogni click del pulsante inserisco un altro numero (mica potevo refreshare la pagina ogni volta)
 var buttonStartGame = document.getElementById('start_game');
 buttonStartGame.addEventListener("click",
   function () {
     do {
+      // Qui verifico se il numero dell'utente non sia una bomba
       var userNumber = prompt("Inserisci un numero compreso tra 1 e 100");
-      // Richiamo la funzione checkForBomb per verificare la presenza del numero inserito nell'array
+      // Richiamo la funzione checkForBomb per verificare la presenza del numero inserito nell'array delle bombe
       var checkExist = checkForBomb(userNumber, arrayBombs);
       console.log("Numero inserito " + userNumber);
       console.log("Il numero era tra le bombe? " + checkExist);
-      console.log(" ");
+
+      // Qui verifico se l'utente non abbia già inserito questo numero
+      var checkExist2 = checkForBomb(userNumber, arrayUser);
+      if (checkExist2 == false) {
+        arrayUser.push(userNumber);
+      } else {
+        console.log("AOOOOOOOOOO HAI GIA' INSERITO QUESTO NUMERO");
+      }
+      console.log(arrayUser);
+
       // Gli sto dicendo di richiedere il numero finchè x resta uguale a false
     } while (checkExist == false);
 
