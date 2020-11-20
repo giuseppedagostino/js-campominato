@@ -14,6 +14,7 @@ do {
 console.log(arrayBombs);
 
 // 2 - PARTE DELL'UTENTE
+// 2.1 - Pulsante Avvia Gioco
 // Creo un array vuoto per i numeri inseriti dall'utente
 var arrayUser = [];
 var buttonStartGame = document.getElementById('start_game');
@@ -62,6 +63,16 @@ buttonStartGame.addEventListener("click",
       document.getElementById('message').innerHTML = "hai vinto !!!";
       document.getElementById('score').innerHTML = "hai ottenuto il punteggio massimo: " + arrayUser.length;
     }
+  }
+)
+
+// 2.2 - Pulsante Resetta
+var buttonStartGame = document.getElementById('reset_game');
+buttonStartGame.addEventListener("click",
+  function () {
+    document.getElementById('message').innerHTML = "";
+    document.getElementById('score').innerHTML = "";
+    console.log("RESET");
   }
 )
 
