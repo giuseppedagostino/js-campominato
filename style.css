@@ -17,16 +17,26 @@ body {
 .card {
   margin: 20px;
   padding: 20px;
-  border: 2px solid;
+  border: 3px solid;
+}
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.025);
+  transition: 0.5s;
 }
 
 /* SEZIONE SUPERIORE */
 body > div:nth-of-type(1) {
-  border-color: white;
   text-align: center;
+  margin: 20px;
+  padding: 20px;
+  border: 3px solid white;
 }
 h1 {
   font-size: 48px;
+}
+h2 {
+  font-size: 32px;
 }
 
 /* SEZIONE INFERIORE */
@@ -39,12 +49,14 @@ body > div:nth-of-type(2) {
 #rules {
   width: 50%;
   border-color: #0892D0;
+  box-shadow: 0px 0px 30px 5px #0892D0;
 }
 
 /* SEZIONE GAME */
 #game {
   width: 50%;
   border-color: red;
+  box-shadow: 0px 0px 30px 5px red;
 }
 button {
   margin-top: 40px;
