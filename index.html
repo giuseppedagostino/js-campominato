@@ -11,12 +11,24 @@
   </head>
 
   <body>
-    <h1>Campo Minato</h1>
+    <div class="card">
+      <h1>Campo Minato</h1>
+    </div>
 
-    <button id="start_game" type="button" name="button">Avvia gioco</button>
+    <div>
+      <!-- Contiene le regole del gioco -->
+      <div id="rules" class="card">
 
-    <p id="message"></p>
-    <p id="score"></p>
+      </div>
+
+      <!-- Contiene il gioco -->
+      <div id="game" class="card">
+        <button id="start_game" type="button" name="button">Avvia gioco</button>
+
+        <p id="message"></p>
+        <p id="score"></p>
+      </div>
+    </div>
 
     <!-- script -->
     <script src="script.js" charset="utf-8"></script>

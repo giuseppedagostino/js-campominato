@@ -24,6 +24,7 @@ buttonStartGame.addEventListener("click",
         do {
           var userNumber = parseInt(prompt("Inserisci un numero compreso tra 1 e 100"));
           if (isNaN(userNumber) || userNumber < 1 || userNumber > 100) {
+            // Feedback per l'utente se sbaglia l'inserimento
             alert("Devi inserire un valore corretto !");
           }
         } while (isNaN(userNumber) || userNumber < 1 || userNumber > 100);

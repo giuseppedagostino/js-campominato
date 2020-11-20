@@ -1,3 +1,4 @@
+/* REGOLE GENERALI */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,15 +7,45 @@
   font-family: 'Rubik', sans-serif;
   color: white;
 }
-
 body {
   padding: 50px;
   background-color: black;
+  /* flex */
+  display: flex;
+  flex-direction: column;
+}
+.card {
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid;
+}
+
+/* SEZIONE SUPERIORE */
+body > div:nth-of-type(1) {
+  border-color: white;
+  text-align: center;
 }
 h1 {
   font-size: 48px;
 }
 
+/* SEZIONE INFERIORE */
+body > div:nth-of-type(2) {
+  /* flex */
+  display: flex;
+}
+
+/* SEZIONE RULES */
+#rules {
+  width: 50%;
+  border-color: #0892D0;
+}
+
+/* SEZIONE GAME */
+#game {
+  width: 50%;
+  border-color: red;
+}
 button {
   margin-top: 40px;
   padding: 20px;
