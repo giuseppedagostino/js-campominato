@@ -17,14 +17,13 @@ console.log(arrayBombs);
 // 2 - PARTE DELL'UTENTE
 // Creo un array vuoto per i numeri inseriti dall'utente
 var arrayUser = [];
-// Ad ogni click del pulsante inserisco un altro numero (mica potevo refreshare la pagina ogni volta)
 var buttonStartGame = document.getElementById('start_game');
 buttonStartGame.addEventListener("click",
   function () {
     do {
       // Qui verifico se il numero dell'utente non sia una bomba
       var userNumber = prompt("Inserisci un numero compreso tra 1 e 100");
-      // Richiamo la funzione checkForBomb per verificare la presenza del numero inserito nell'array delle bombe
+      // Richiamo la funzione checkForBomb per verificarlo
       var checkExist = checkForBomb(userNumber, arrayBombs);
       console.log("Numero inserito " + userNumber);
       console.log("Il numero era tra le bombe? " + checkExist);
@@ -34,18 +33,26 @@ buttonStartGame.addEventListener("click",
       if (checkExist2 == false) {
         arrayUser.push(userNumber);
       } else {
-        console.log("AOOOOOOOOOO HAI GIA' INSERITO QUESTO NUMERO");
+        alert("AOOOOOOOOOO HAI GIA' INSERITO QUESTO NUMERO");
       }
       console.log(arrayUser);
       console.log(" ");
 
-      // Gli sto dicendo di richiedere il numero finchè x resta uguale a false
-    } while (checkExist == false);
+      // L'utente vince se inserisce il numero massimo possibile di numeri corretti, la condizione sta inserita nel while in fondo e QUESTO E' UN NUMERO MOMENTANEO
+      var maxArrayUserLength = 5;
 
+      // Gli sto dicendo di richiedere il numero finchè x resta uguale a false
+    } while (checkExist == false && arrayUser.length < maxArrayUserLength);
+
+    // Se becchi una bomba printa Game Over
     if (checkExist == true) {
       // Forse era più bello boom?
-      document.getElementById('message').innerHTML = "Game over.";
+      document.getElementById('message').innerHTML = "game over.";
       document.getElementById('score').innerHTML = "punteggio " + arrayUser.length;
+    }
+    // Se vinci printa Hai Vinto
+    if (arrayUser.length == maxArrayUserLength) {
+      document.getElementById('message').innerHTML = "hai vinto !!!";
     }
   }
 )
@@ -66,3 +73,4 @@ function checkForBomb(number, array) {
   // Se non la trova result sarà uguale a false (come inizializzato), non ho scritto l'else per abbreviare, va in automatico
   return result;
 }
+// E comunque si, la variabile result potrebbe essere eliminata e la funzione con return funzionerebbe lo stesso
