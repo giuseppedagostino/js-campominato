@@ -21,8 +21,12 @@ var buttonStartGame = document.getElementById('start_game');
 buttonStartGame.addEventListener("click",
   function () {
     do {
+      // Qui verifico che l'utente inserisca i numeri correttamente
+        do {
+          var userNumber = prompt("Inserisci un numero compreso tra 1 e 100");
+        } while (userNumber < 1 || userNumber > 100);
+
       // Qui verifico se il numero dell'utente non sia una bomba
-      var userNumber = prompt("Inserisci un numero compreso tra 1 e 100");
       // Richiamo la funzione checkForBomb per verificarlo
       var checkExist = checkForBomb(userNumber, arrayBombs);
       console.log("Numero inserito " + userNumber);
@@ -38,8 +42,9 @@ buttonStartGame.addEventListener("click",
       console.log(arrayUser);
       console.log(" ");
 
-      // L'utente vince se inserisce il numero massimo possibile di numeri corretti, la condizione sta inserita nel while in fondo e QUESTO E' UN NUMERO MOMENTANEO
-      var maxArrayUserLength = 5;
+      // L'utente vince se inserisce il numero massimo possibile di numeri corretti, la condizione sta inserita nel while in fondo
+      var maxArrayUserLength = 100 - arrayBombs.length;
+      console.log("Punteggio massimo " + maxArrayUserLength);
 
       // Gli sto dicendo di richiedere il numero finchè x resta uguale a false
     } while (checkExist == false && arrayUser.length < maxArrayUserLength);
