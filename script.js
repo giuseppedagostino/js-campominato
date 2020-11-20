@@ -53,6 +53,7 @@ buttonStartGame.addEventListener("click",
     // Se vinci printa Hai Vinto
     if (arrayUser.length == maxArrayUserLength) {
       document.getElementById('message').innerHTML = "hai vinto !!!";
+      document.getElementById('score').innerHTML = "hai ottenuto il punteggio massimo: " + arrayUser.length;
     }
   }
 )
