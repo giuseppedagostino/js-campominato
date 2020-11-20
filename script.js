@@ -1,9 +1,8 @@
 // 1 - PARTE DEL COMPUTER
 // Creo l'array vuoto
 var arrayBombs = [];
-// Richiamo la funzione per pusharci dentro 16 numeri random con valore massimo 100
 do {
-  // La bomba viene generata random ad ogni ciclo
+  // La bomba viene generata random ad ogni ciclo finchè non ne vengono generate 16 diverse
   var bomb = generateRandomBombs (1, 100);
   // L'altra funzione cerca nell'array se c'è già quel numero prima di pushare
   var checkExist0 = checkForDuplicate(bomb, arrayBombs);
@@ -21,13 +20,12 @@ var buttonStartGame = document.getElementById('start_game');
 buttonStartGame.addEventListener("click",
   function () {
     do {
-      // Qui verifico che l'utente inserisca i numeri correttamente
+      // Verifico che l'utente inserisca i numeri correttamente
         do {
-          var userNumber = prompt("Inserisci un numero compreso tra 1 e 100");
-        } while (userNumber < 1 || userNumber > 100);
+          var userNumber = parseInt(prompt("Inserisci un numero compreso tra 1 e 100"));
+        } while (isNaN(userNumber) || userNumber < 1 || userNumber > 100);
 
-      // Qui verifico se il numero dell'utente non sia una bomba
-      // Richiamo la funzione checkForBomb per verificarlo
+      // Verifico se il numero dell'utente non sia una bomba
       var checkExist = checkForDuplicate(userNumber, arrayBombs);
       console.log("Numero inserito " + userNumber);
       console.log("Il numero era tra le bombe? " + checkExist);
@@ -46,7 +44,7 @@ buttonStartGame.addEventListener("click",
       var maxArrayUserLength = 100 - arrayBombs.length;
       console.log("Punteggio massimo " + maxArrayUserLength);
 
-      // Gli sto dicendo di richiedere il numero finchè x resta uguale a false
+      // Gli sto dicendo di richiedere il numero finchè checkExist resta uguale a false
     } while (checkExist == false && arrayUser.length < maxArrayUserLength);
 
     // Se perdi
