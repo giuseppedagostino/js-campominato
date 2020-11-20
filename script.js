@@ -6,8 +6,8 @@ do {
   // La bomba viene generata random ad ogni ciclo
   var bomb = generateRandomBombs (1, 100);
   // L'altra funzione cerca nell'array se c'è già quel numero prima di pushare
-  var checkForDuplicate = checkForBomb(bomb, arrayBombs);
-  if (checkForDuplicate == false) {
+  var checkExist0 = checkForDuplicate(bomb, arrayBombs);
+  if (checkExist0 == false) {
     arrayBombs.push(bomb);
   }
 } while (arrayBombs.length < 16);
@@ -28,12 +28,12 @@ buttonStartGame.addEventListener("click",
 
       // Qui verifico se il numero dell'utente non sia una bomba
       // Richiamo la funzione checkForBomb per verificarlo
-      var checkExist = checkForBomb(userNumber, arrayBombs);
+      var checkExist = checkForDuplicate(userNumber, arrayBombs);
       console.log("Numero inserito " + userNumber);
       console.log("Il numero era tra le bombe? " + checkExist);
 
       // Qui verifico se l'utente non abbia già inserito questo numero
-      var checkExist2 = checkForBomb(userNumber, arrayUser);
+      var checkExist2 = checkForDuplicate(userNumber, arrayUser);
       if (checkExist2 == false) {
         arrayUser.push(userNumber);
       } else {
@@ -49,13 +49,13 @@ buttonStartGame.addEventListener("click",
       // Gli sto dicendo di richiedere il numero finchè x resta uguale a false
     } while (checkExist == false && arrayUser.length < maxArrayUserLength);
 
-    // Se becchi una bomba printa Game Over
+    // Se perdi
     if (checkExist == true) {
       // Forse era più bello boom?
       document.getElementById('message').innerHTML = "game over.";
       document.getElementById('score').innerHTML = "punteggio " + arrayUser.length;
     }
-    // Se vinci printa Hai Vinto
+    // Se vinci
     if (arrayUser.length == maxArrayUserLength) {
       document.getElementById('message').innerHTML = "hai vinto !!!";
       document.getElementById('score').innerHTML = "hai ottenuto il punteggio massimo: " + arrayUser.length;
@@ -69,7 +69,7 @@ function generateRandomBombs(min, max) {
     return Math.floor(Math.random()*max) + min;
 }
 
-function checkForBomb(number, array) {
+function checkForDuplicate(number, array) {
   var result = false;
   for (var i = 0; i < array.length; i++) {
     if (number == array[i]) {
