@@ -5,6 +5,9 @@ buttonEasy.addEventListener("click",
     difficulty = "facile";
     alert("Hai scelto facile!");
     console.log("Difficoltà inserita facile");
+
+    var easyChosen = document.getElementById('easy');
+    easyChosen.className = ("chosen");
   }
 );
 
@@ -15,6 +18,9 @@ buttonMedium.addEventListener("click",
     difficulty = "medio";
     alert("Hai scelto medio!");
     console.log("Difficoltà inserita medio");
+
+    var mediumChosen = document.getElementById('medium');
+    mediumChosen.className = ("chosen");
   }
 );
 
@@ -25,6 +31,9 @@ buttonHard.addEventListener("click",
     difficulty = "difficile";
     alert("Hai scelto difficile!");
     console.log("Difficoltà inserita difficile");
+
+    var hardChosen = document.getElementById('hard');
+    hardChosen.className = ("chosen");
   }
 );
 
@@ -45,12 +54,10 @@ buttonStartGame.addEventListener("click",
         console.log("Numero massimo " + numberMax);
         break;
       default:
-        alert("Hai scelto facile!");
         numberMin = 1;
         numberMax = 100;
         console.log("Numero massimo " + numberMax);
     }
-    console.log("Difficoltà " + difficulty);
 
     // 1 - PARTE DEL COMPUTER
     // Creo l'array vuoto
@@ -97,7 +104,6 @@ buttonStartGame.addEventListener("click",
 
       // L'utente vince se inserisce il numero massimo possibile di numeri corretti, la condizione sta inserita nel while in fondo
       var maxArrayUserLength = 100 - arrayBombs.length;
-      console.log("Punteggio massimo " + maxArrayUserLength);
 
       // Gli sto dicendo di richiedere il numero finchè checkExist resta uguale a false
     } while (checkExist == false && arrayUser.length < maxArrayUserLength);

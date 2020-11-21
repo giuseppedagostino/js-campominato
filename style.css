@@ -17,7 +17,6 @@ body {
 button {
   margin-right: 20px;
   padding: 20px;
-  background-color: black;
   border: 2px solid white;
   border-radius: 20px;
 }
@@ -43,8 +42,11 @@ button:hover {
 .visible {
   opacity: 1;
 }
-.difficulty_button {
-  margin-bottom: 25px;
+.chosen {
+  background-color: red;
+}
+.not_chosen {
+  background-color: black;
 }
 
 /* SEZIONE SUPERIORE */
