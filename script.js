@@ -54,12 +54,27 @@ buttonStartGame.addEventListener("click",
 
     // Se perdi
     if (checkExist == true) {
-      // Forse era più bello boom?
+      // Compare il riquadro
+      var endGame = document.getElementById('end_game');
+      endGame.className = "visible";
+      var endGameMessage = document.getElementById('message');
+      endGameMessage.className = "visible";
+      var endGameScore = document.getElementById('score');
+      endGameScore.className = "visible";
+      // Scrittura dati finali
       document.getElementById('message').innerHTML = "game over.";
       document.getElementById('score').innerHTML = "punteggio " + arrayUser.length;
     }
     // Se vinci
     if (arrayUser.length == maxArrayUserLength) {
+      // Compare il riquadro
+      var endGame = document.getElementById('end_game');
+      endGame.className = "visible";
+      var endGameMessage = document.getElementById('message');
+      endGameMessage.className = "visible";
+      var endGameScore = document.getElementById('score');
+      endGameScore.className = "visible";
+      // Scrittura dati finali
       document.getElementById('message').innerHTML = "hai vinto !!!";
       document.getElementById('score').innerHTML = "hai ottenuto il punteggio massimo: " + arrayUser.length;
     }
@@ -70,9 +85,13 @@ buttonStartGame.addEventListener("click",
 var buttonStartGame = document.getElementById('reset_game');
 buttonStartGame.addEventListener("click",
   function () {
-    document.getElementById('message').innerHTML = "";
-    document.getElementById('score').innerHTML = "";
-    console.log("RESET");
+    // Scompare il riquadro
+    var endGame = document.getElementById('end_game');
+    endGame.className = "hidden";
+    var endGameMessage = document.getElementById('message');
+    endGameMessage.className = "hidden";
+    var endGameScore = document.getElementById('score');
+    endGameScore.className = "hidden";
   }
 )
 

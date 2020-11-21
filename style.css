@@ -14,6 +14,18 @@ body {
   display: flex;
   flex-direction: column;
 }
+button {
+  margin-right: 20px;
+  padding: 20px;
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 20px;
+}
+button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.5s;
+}
 .card {
   margin: 20px;
   padding: 20px;
@@ -23,6 +35,12 @@ body {
   cursor: pointer;
   transform: scale(1.025);
   transition: 0.5s;
+}
+.hidden {
+  opacity: 0;
+}
+.visible {
+  opacity: 1;
 }
 
 /* SEZIONE SUPERIORE */
@@ -63,25 +81,28 @@ body > div:nth-of-type(2) {
   border-color: red;
   box-shadow: 0px 0px 30px 5px red;
 }
-button {
-  margin-right: 20px;
+
+/* SEZIONE END GAME */
+#end_game {
+  /* posizionamento */
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   padding: 20px;
+  /* aspetto */
+  transition: 2s;
   background-color: black;
-  border: 2px solid white;
-  border-radius: 20px;
-}
-button:hover {
-  cursor: pointer;
-  transform: scale(1.1);
-  transition: 0.5s;
+  border: 3px solid green;
 }
 #message {
-  margin-top: 20px;
   text-transform: uppercase;
   color: red;
+  transition: 2s;
 }
 #score {
-  margin-top: 20px;
+  margin: 20px 0;
   text-transform: uppercase;
   color: #0892D0;
+  transition: 2s;
 }
