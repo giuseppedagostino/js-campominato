@@ -4,15 +4,26 @@ buttonStartGame.addEventListener("click",
   function () {
     // SEZIONE BONUS
     var difficulty = prompt("Scegli la difficoltà tra facile, medio e difficile.");
+    numberMin = "";
+    numberMax = "";
     switch (difficulty) {
       case "medio":
         alert("Hai scelto medio!");
+        numberMin = 1;
+        numberMax = 80;
+        console.log("Numero massimo " + numberMax);
         break;
       case "difficile":
         alert("Hai scelto difficile!");
+        numberMin = 1;
+        numberMax = 50;
+        console.log("Numero massimo " + numberMax);
         break;
       default:
         alert("Hai scelto facile!");
+        numberMin = 1;
+        numberMax = 100;
+        console.log("Numero massimo " + numberMax);
     }
     console.log("Difficoltà " + difficulty);
 
@@ -21,7 +32,7 @@ buttonStartGame.addEventListener("click",
     arrayBombs = [];
     do {
       // La bomba viene generata random ad ogni ciclo finchè non ne vengono generate 16 diverse
-      var bomb = generateRandomBombs (1, 100);
+      var bomb = generateRandomBombs (numberMin, numberMax);
       // L'altra funzione cerca nell'array se c'è già quel numero prima di pushare
       var checkExist0 = checkForDuplicate(bomb, arrayBombs);
       if (checkExist0 == false) {
@@ -37,12 +48,12 @@ buttonStartGame.addEventListener("click",
     do {
       // Verifico che l'utente inserisca i numeri correttamente
         do {
-          var userNumber = parseInt(prompt("Inserisci un numero compreso tra 1 e 100"));
-          if (isNaN(userNumber) || userNumber < 1 || userNumber > 100) {
+          var userNumber = parseInt(prompt("Inserisci un numero compreso tra " + numberMin + " e " + numberMax));
+          if (isNaN(userNumber) || userNumber < numberMin || userNumber > numberMax) {
             // Feedback per l'utente se sbaglia l'inserimento
             alert("Devi inserire un valore corretto !");
           }
-        } while (isNaN(userNumber) || userNumber < 1 || userNumber > 100);
+        } while (isNaN(userNumber) || userNumber < numberMin || userNumber > numberMax);
 
       // Verifico se il numero dell'utente non sia una bomba
       var checkExist = checkForDuplicate(userNumber, arrayBombs);
@@ -54,7 +65,7 @@ buttonStartGame.addEventListener("click",
       if (checkExist2 == false) {
         arrayUser.push(userNumber);
       } else {
-        alert("AOOOOOOOOOO HAI GIA' INSERITO QUESTO NUMERO");
+        alert("Hai già inserito questo numero. Riprova.");
       }
       console.log(arrayUser);
       console.log(" ");
