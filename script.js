@@ -1,6 +1,6 @@
 // 1 - PARTE DEL COMPUTER
 // Creo l'array vuoto
-var arrayBombs = [];
+arrayBombs = [];
 do {
   // La bomba viene generata random ad ogni ciclo finchè non ne vengono generate 16 diverse
   var bomb = generateRandomBombs (1, 100);
@@ -16,7 +16,7 @@ console.log(arrayBombs);
 // 2 - PARTE DELL'UTENTE
 // 2.1 - Pulsante Avvia Gioco
 // Creo un array vuoto per i numeri inseriti dall'utente
-var arrayUser = [];
+arrayUser = [];
 var buttonStartGame = document.getElementById('start_game');
 buttonStartGame.addEventListener("click",
   function () {
@@ -92,6 +92,23 @@ buttonStartGame.addEventListener("click",
     endGameMessage.className = "hidden";
     var endGameScore = document.getElementById('score');
     endGameScore.className = "hidden";
+
+    // Svuoto l'array delle bombe e l'array utente
+    arrayBombs = [];
+    console.log("Array bombe appena svuotato " + arrayBombs);
+    arrayUser = [];
+    console.log("Array utente appena svuotato " + arrayUser);
+
+    // Ricreo altre bombe
+    arrayBombs = [];
+    do {
+      var bomb = generateRandomBombs (1, 100);
+      var checkExist0 = checkForDuplicate(bomb, arrayBombs);
+      if (checkExist0 == false) {
+        arrayBombs.push(bomb);
+      }
+    } while (arrayBombs.length < 16);
+    console.log(arrayBombs);
   }
 )
 
