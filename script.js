@@ -2,6 +2,20 @@
 var buttonStartGame = document.getElementById('start_game');
 buttonStartGame.addEventListener("click",
   function () {
+    // SEZIONE BONUS
+    var difficulty = prompt("Scegli la difficoltà tra facile, medio e difficile.");
+    switch (difficulty) {
+      case "medio":
+        alert("Hai scelto medio!");
+        break;
+      case "difficile":
+        alert("Hai scelto difficile!");
+        break;
+      default:
+        alert("Hai scelto facile!");
+    }
+    console.log("Difficoltà " + difficulty);
+
     // 1 - PARTE DEL COMPUTER
     // Creo l'array vuoto
     arrayBombs = [];
