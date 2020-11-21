@@ -5,8 +5,8 @@ buttonEasy.addEventListener("click",
     difficulty = "facile";
     alert("Hai scelto facile!");
     console.log("Difficoltà inserita facile");
-
-    var easyChosen = document.getElementById('easy');
+    
+    easyChosen = document.getElementById('easy');
     easyChosen.className = ("chosen");
   }
 );
@@ -19,7 +19,7 @@ buttonMedium.addEventListener("click",
     alert("Hai scelto medio!");
     console.log("Difficoltà inserita medio");
 
-    var mediumChosen = document.getElementById('medium');
+    mediumChosen = document.getElementById('medium');
     mediumChosen.className = ("chosen");
   }
 );
@@ -32,7 +32,7 @@ buttonHard.addEventListener("click",
     alert("Hai scelto difficile!");
     console.log("Difficoltà inserita difficile");
 
-    var hardChosen = document.getElementById('hard');
+    hardChosen = document.getElementById('hard');
     hardChosen.className = ("chosen");
   }
 );
@@ -148,6 +148,11 @@ buttonStartGame.addEventListener("click",
     endGameMessage.className = "hidden";
     var endGameScore = document.getElementById('score');
     endGameScore.className = "hidden";
+
+    // Anche i pulsanti della difficoltà si resettano
+    easyChosen.className = ("not_chosen");
+    mediumChosen.className = ("not_chosen");
+    hardChosen.className = ("not_chosen");
   }
 )
 
