@@ -43,6 +43,9 @@ button:hover {
 .visible {
   opacity: 1;
 }
+.difficulty_button {
+  margin-bottom: 25px;
+}
 
 /* SEZIONE SUPERIORE */
 body > div:nth-of-type(1) {

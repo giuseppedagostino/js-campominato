@@ -4,8 +4,6 @@ buttonStartGame.addEventListener("click",
   function () {
     // SEZIONE BONUS
     var difficulty = prompt("Scegli la difficoltà tra facile, medio e difficile.");
-    numberMin = "";
-    numberMax = "";
     switch (difficulty) {
       case "medio":
         alert("Hai scelto medio!");
