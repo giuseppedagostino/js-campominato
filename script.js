@@ -1,18 +1,45 @@
+// PULSANTE FACILE
+var buttonEasy = document.getElementById('easy');
+buttonEasy.addEventListener("click",
+  function () {
+    difficulty = "facile";
+    alert("Hai scelto facile!");
+    console.log("Difficoltà inserita facile");
+  }
+);
+
+// PULSANTE MEDIO
+var buttonMedium = document.getElementById('medium');
+buttonMedium.addEventListener("click",
+  function () {
+    difficulty = "medio";
+    alert("Hai scelto medio!");
+    console.log("Difficoltà inserita medio");
+  }
+);
+
+// PULSANTE DIFFICILE
+var buttonHard = document.getElementById('hard');
+buttonHard.addEventListener("click",
+  function () {
+    difficulty = "difficile";
+    alert("Hai scelto difficile!");
+    console.log("Difficoltà inserita difficile");
+  }
+);
+
 // PULSANTE AVVIA GIOCO
 var buttonStartGame = document.getElementById('start_game');
 buttonStartGame.addEventListener("click",
   function () {
     // SEZIONE BONUS
-    var difficulty = prompt("Scegli la difficoltà tra facile, medio e difficile.");
     switch (difficulty) {
       case "medio":
-        alert("Hai scelto medio!");
         numberMin = 1;
         numberMax = 80;
         console.log("Numero massimo " + numberMax);
         break;
       case "difficile":
-        alert("Hai scelto difficile!");
         numberMin = 1;
         numberMax = 50;
         console.log("Numero massimo " + numberMax);
