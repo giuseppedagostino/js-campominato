@@ -1,25 +1,25 @@
-// 1 - PARTE DEL COMPUTER
-// Creo l'array vuoto
-arrayBombs = [];
-do {
-  // La bomba viene generata random ad ogni ciclo finchè non ne vengono generate 16 diverse
-  var bomb = generateRandomBombs (1, 100);
-  // L'altra funzione cerca nell'array se c'è già quel numero prima di pushare
-  var checkExist0 = checkForDuplicate(bomb, arrayBombs);
-  if (checkExist0 == false) {
-    arrayBombs.push(bomb);
-  }
-} while (arrayBombs.length < 16);
-// Stampo il mio array per verificare
-console.log(arrayBombs);
-
-// 2 - PARTE DELL'UTENTE
-// 2.1 - Pulsante Avvia Gioco
-// Creo un array vuoto per i numeri inseriti dall'utente
-arrayUser = [];
+// PULSANTE AVVIA GIOCO
 var buttonStartGame = document.getElementById('start_game');
 buttonStartGame.addEventListener("click",
   function () {
+    // 1 - PARTE DEL COMPUTER
+    // Creo l'array vuoto
+    arrayBombs = [];
+    do {
+      // La bomba viene generata random ad ogni ciclo finchè non ne vengono generate 16 diverse
+      var bomb = generateRandomBombs (1, 100);
+      // L'altra funzione cerca nell'array se c'è già quel numero prima di pushare
+      var checkExist0 = checkForDuplicate(bomb, arrayBombs);
+      if (checkExist0 == false) {
+        arrayBombs.push(bomb);
+      }
+    } while (arrayBombs.length < 16);
+    // Stampo il mio array per verificare
+    console.log(arrayBombs);
+
+    // 2 - PARTE DELL'UTENTE
+    // Creo un array vuoto per i numeri inseriti dall'utente
+    arrayUser = [];
     do {
       // Verifico che l'utente inserisca i numeri correttamente
         do {
@@ -81,34 +81,17 @@ buttonStartGame.addEventListener("click",
   }
 )
 
-// 2.2 - Pulsante Resetta
+// PULSANTE RESETTA
 var buttonStartGame = document.getElementById('reset_game');
 buttonStartGame.addEventListener("click",
   function () {
     // Scompare il riquadro
     var endGame = document.getElementById('end_game');
-    endGame.className = "hidden";
+    endGame.classList = "hidden";
     var endGameMessage = document.getElementById('message');
     endGameMessage.className = "hidden";
     var endGameScore = document.getElementById('score');
     endGameScore.className = "hidden";
-
-    // Svuoto l'array delle bombe e l'array utente
-    arrayBombs = [];
-    console.log("Array bombe appena svuotato " + arrayBombs);
-    arrayUser = [];
-    console.log("Array utente appena svuotato " + arrayUser);
-
-    // Ricreo altre bombe
-    arrayBombs = [];
-    do {
-      var bomb = generateRandomBombs (1, 100);
-      var checkExist0 = checkForDuplicate(bomb, arrayBombs);
-      if (checkExist0 == false) {
-        arrayBombs.push(bomb);
-      }
-    } while (arrayBombs.length < 16);
-    console.log(arrayBombs);
   }
 )
 
