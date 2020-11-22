@@ -3,7 +3,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-size: 24px;
+  font-size: 22px;
   font-family: 'Rubik', sans-serif;
   color: white;
 }
@@ -27,7 +27,7 @@ button:hover {
 }
 .card {
   margin: 20px;
-  padding: 20px;
+  padding: 40px;
   border: 3px solid;
 }
 .card:hover {
@@ -80,6 +80,7 @@ h2 {
 
 /* SEZIONE DI MEZZO */
 body > div:nth-of-type(2) {
+  height: 350px;
   /* flex */
   display: flex;
 }
@@ -89,9 +90,18 @@ body > div:nth-of-type(2) {
   width: 50%;
   border-color: #0892D0;
   box-shadow: 0px 0px 30px 5px #0892D0;
+  overflow-y: scroll;
 }
 #rules ul {
   list-style: none;
+}
+#rules ul li {
+  margin-bottom: 20px;
+}
+#rules ul li span {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0892D0;
 }
 
 /* SEZIONE GAME */
