@@ -8,13 +8,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
     <!-- Link al foglio di stile -->
     <link rel="stylesheet" href="style.css">
+    <!-- link a Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.css" integrity="sha512-f73UKwzP1Oia45eqHpHwzJtFLpvULbhVpEJfaWczo/ZCV5NWSnK4vLDnjTaMps28ocZ05RbI83k2RlQH92zy7A==" crossorigin="anonymous" />
   </head>
 
   <body>
+    <!-- sezione superiore -->
     <div>
       <h1>Campo Minato</h1>
     </div>
 
+    <!-- sezione di mezzo -->
     <div>
       <!-- Contiene le regole del gioco -->
       <div id="rules" class="card">
@@ -41,12 +45,30 @@
       </div>
     </div>
 
-    <!-- Contiene i messaggi finali -->
+    <!-- Sezione di fine gioco -->
     <div id="end_game" class="hidden">
       <h1 id="message" class="hidden"></h1>
       <h1 id="score" class="hidden"></h1>
 
       <button id="reset_game" class="not_chosen" type="button" name="button">Resetta</button>
+    </div>
+
+    <!-- Sezione inferiore -->
+    <div>
+      <h4>Gentilmente offerto da Giuseppe D'Agostino</h4>
+
+      <ul>
+        <li>
+          <a href="https://github.com/giuseppedagostino">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/giuseppe-d-agostino/">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </li>
+      </ul>
     </div>
 
     <!-- script -->
