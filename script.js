@@ -5,7 +5,7 @@ buttonEasy.addEventListener("click",
     difficulty = "facile";
     alert("Hai scelto facile!");
     console.log("Difficoltà inserita facile");
-    
+
     easyChosen = document.getElementById('easy');
     easyChosen.className = ("chosen");
   }
@@ -103,7 +103,7 @@ buttonStartGame.addEventListener("click",
       console.log(" ");
 
       // L'utente vince se inserisce il numero massimo possibile di numeri corretti, la condizione sta inserita nel while in fondo
-      var maxArrayUserLength = 100 - arrayBombs.length;
+      var maxArrayUserLength = numberMax - arrayBombs.length;
 
       // Gli sto dicendo di richiedere il numero finchè checkExist resta uguale a false
     } while (checkExist == false && arrayUser.length < maxArrayUserLength);
@@ -112,7 +112,7 @@ buttonStartGame.addEventListener("click",
     if (checkExist == true) {
       // Compare il riquadro
       var endGame = document.getElementById('end_game');
-      endGame.className = "visible";
+      endGame.classList = "visible, red";
       var endGameMessage = document.getElementById('message');
       endGameMessage.className = "visible";
       var endGameScore = document.getElementById('score');
@@ -121,11 +121,12 @@ buttonStartGame.addEventListener("click",
       document.getElementById('message').innerHTML = "game over.";
       document.getElementById('score').innerHTML = "punteggio " + arrayUser.length;
     }
+
     // Se vinci
     if (arrayUser.length == maxArrayUserLength) {
       // Compare il riquadro
       var endGame = document.getElementById('end_game');
-      endGame.className = "visible";
+      endGame.classList = "visible, blue";
       var endGameMessage = document.getElementById('message');
       endGameMessage.className = "visible";
       var endGameScore = document.getElementById('score');
