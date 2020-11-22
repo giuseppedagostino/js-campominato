@@ -133,6 +133,20 @@ body > div:nth-of-type(2) {
   text-transform: uppercase;
   color: red;
   transition: 2s;
+  animation-name: flash_opacity;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+@keyframes flash_opacity {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 #score {
   margin: 20px 0;
